@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import Layout from './App';
-import MainDropDown from './App'
-import NavBar from './components/NavBar'
-import Films from './components/Films';
+
+import Layout from './Layout/Layout';
+
+
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,11 +12,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <NavBar />
-    <Films />
-    <MainDropDown />
+    <Layout />
   </React.StrictMode>
 );
+
+
+
 
 
 //USAR FLUX y CONTEXT

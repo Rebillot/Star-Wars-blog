@@ -1,39 +1,25 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useContext } from "react";
+import { Context } from "../Store/AppContext";
 
 function Planets() {
-    const [planets, setplanets] = useState([]);
-    
-
-    useEffect(() => {
-        const FetchData = async () => {
-        try {
-            const responseplanets = await fetch(
-            "https://www.swapi.tech/api/planets"
-            );
-            const dataplanets = await responseplanets.json();
-            setplanets(dataplanets.results);
-        } catch (error) {
-            console.error(error);
-        }
-        };
-        FetchData();
-    }, []);
+const {store} = useContext(Context)
 
     return (
         <>
-        {planets.slice(0, 10).map((planets) => (
-            <Card className="Cards" style={{ width: "13rem", display: "inline-block", textAlign: "center"}} key={planets.uid}>
+        {store.planets.map((planets,index) => (
+            <Card className="Cards" style={{ width: "13rem", display: "inline-block", textAlign: "center"}} key={index}>
             <Card.Img
                 variant="top"
-                src={`https://starwars-visualguide.com/assets/img/planets/${planets.uid}.jpg`}
+                src={`https://starwars-visualguide.com/assets/img/planets/${index +1}.jpg`}
                 onError={(e) => {e.target.src ='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'}}
             />
             <Card.Body>
                 <Card.Title>{planets.name}</Card.Title>
                 <Card.Text></Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" href="/learnmore">Go somewhere</Button>
             </Card.Body>
             </Card>
         ))}
