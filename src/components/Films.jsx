@@ -4,9 +4,16 @@ import Card from "react-bootstrap/Card";
 import { Context } from "../Store/AppContext";
 
 function Films() {
-    const { store } = useContext(Context);
+    const { store, actions } = useContext(Context);
+const isFavorite = (films) => store.films.includes(films);
 
-    console.log(store.films, "films");
+const handleFavoriteClick = (films) => {
+    if (isFavorite(films)) {
+      actions.removeFromFavorites(films);
+    } else {
+      actions.addToFavorites(films);
+    }
+  };
 
     return (
         <>
@@ -24,6 +31,9 @@ function Films() {
                 <Card.Title>{film.title}</Card.Title>
                 <Card.Text></Card.Text>
                 <Button variant="primary">Learn More</Button>
+                <Button onClick={() => handleFavoriteClick(film.title)}>
+                {isFavorite(film.title) ? "♥" : "♡"}
+              </Button>
             </Card.Body>
             </Card>
         ))}

@@ -3,7 +3,6 @@ import Accordion from "react-bootstrap/Accordion";
 import Characters from "./Characters";
 import Vehicles from "./Vehicles";
 import Planets from "./Planets";
-import Films from "./Films";
 
 function MainDropDown() {
     return (
@@ -24,12 +23,6 @@ function MainDropDown() {
             <Accordion.Header>Planets</Accordion.Header>
             <Accordion.Body>
             <Planets />
-            </Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="3">
-            <Accordion.Header>Films</Accordion.Header>
-            <Accordion.Body>
-            <Films />
             </Accordion.Body>
         </Accordion.Item>
         </Accordion>

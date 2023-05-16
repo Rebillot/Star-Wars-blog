@@ -6,8 +6,7 @@ import { Context } from "../Store/AppContext";
 import { useContext } from "react";
 
 function NavBar() {
-  const { store, actions } = useContext(Context);
-  console.log(store.favoritos, "what the fuck is this");
+  const { store,} = useContext(Context);
 
   return (
     <Navbar bg="light" expand="lg">
@@ -26,7 +25,6 @@ function NavBar() {
           </Nav>
         </Navbar.Collapse>
       </Container>
-
     </Navbar>
     
   );

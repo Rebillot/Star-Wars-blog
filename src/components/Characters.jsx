@@ -1,7 +1,9 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useContext } from "react";
+import { useContext} from "react";
 import { Context } from "../Store/AppContext";
+import { Link } from 'react-router-dom';
+
 
 function Characters() {
   const { store, actions } = useContext(Context);
@@ -15,6 +17,7 @@ function Characters() {
       actions.addToFavorites(character);
     }
   };
+
 
   return (
     <>
@@ -30,14 +33,18 @@ function Characters() {
           >
             <Card.Img
               variant="top"
-              src={`https://starwars-visualguide.com/assets/img/characters/${index+1}.jpg`}
+              src={`https://starwars-visualguide.com/assets/img/characters/${
+                index + 1
+              }.jpg`}
             />
             <Card.Body>
               <Card.Title>{personaje.name}</Card.Title>
               <Card.Text></Card.Text>
-              <Button variant="primary" href="/learnmore">
-                Learn More
-              </Button>
+
+              <Link to={`/learnmore/people/${index+1}`}>
+              <button className="btn btn-primary">Learn More</button>
+              </Link>
+
               <Button onClick={() => handleFavoriteClick(personaje.name)}>
                 {isFavorite(personaje.name) ? "♥" : "♡"}
               </Button>

@@ -21,8 +21,7 @@ const injectContext = (PassedComponent) => {
         globalData.actions.fetchCharacters();
         globalData.actions.fetchPlanets();
         globalData.actions.fetchVehicles();
-        globalData.actions.fetchFilms();
-        }, []);
+        },[]);
 
         return (
         <Context.Provider value={globalData}>
