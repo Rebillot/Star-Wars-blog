@@ -20,7 +20,7 @@ function Planets() {
         <>
         {store.planets.map((planets, index) => (
             <Card
-            className="Cards"
+            className="m-3"
             style={{
                 width: "13rem",
                 display: "inline-block",
@@ -44,7 +44,7 @@ function Planets() {
                 <Button variant="primary" href={`/learnmore/planets/${index+1}`}>
                 Learn More
                 </Button>
-                <Button onClick={() => handleFavoriteClick(planets.name)}>
+                <Button onClick={() => handleFavoriteClick(planets.name)}className="mx-2">
                 {isFavorite(planets.name) ? "♥" : "♡"}
                 </Button>
             </Card.Body>

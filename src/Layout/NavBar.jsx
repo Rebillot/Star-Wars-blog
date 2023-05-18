@@ -4,17 +4,18 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Context } from "../Store/AppContext";
 import { useContext } from "react";
+import '../App.css';
 
 function NavBar() {
   const { store,} = useContext(Context);
 
   return (
-    <Navbar bg="light" expand="lg">
-      <Container>
-        <Navbar.Brand href="#home">STAR WARS</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-end">
+    <Navbar bg="" expand="lg">
+      <Container >
+        <Navbar.Brand href="/home">STAR WARS</Navbar.Brand >
+        <Navbar.Toggle  aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" >
+          <Nav >
             <NavDropdown title="Favorites" id="basic-nav-dropdown">
               <ul>
                 {store.favoritos.map((favorito, index) => (

@@ -19,7 +19,7 @@ function Vehicles() {
         <>
         {store.vehicles.map((vehicles) => (
             <Card
-            className="Cards"
+            className="m-3"
             style={{
                 width: "13rem",
                 display: "inline-block",
@@ -37,7 +37,7 @@ function Vehicles() {
                 <Button variant="primary" href={`/learnmore/vehicles/${vehicles.uid}`}>
                 Learn More
                 </Button>
-                <Button onClick={() => handleFavoriteClick(vehicles.name)}>
+                <Button onClick={() => handleFavoriteClick(vehicles.name)} className="mx-2">
                 {isFavorite(vehicles.name) ? "♥" : "♡"}
                 </Button>
             </Card.Body>

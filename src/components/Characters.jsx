@@ -1,9 +1,8 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { useContext} from "react";
+import { useContext } from "react";
 import { Context } from "../Store/AppContext";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 function Characters() {
   const { store, actions } = useContext(Context);
@@ -18,14 +17,14 @@ function Characters() {
     }
   };
 
-
   return (
     <>
       {store.personajes.map((personaje, index) => {
         return (
           <Card
+            className="m-3"
             style={{
-              width: "13rem",
+              width: "15rem",
               display: "inline-block",
               textAlign: "center",
             }}
@@ -37,15 +36,18 @@ function Characters() {
                 index + 1
               }.jpg`}
             />
-            <Card.Body>
+            <Card.Body className="">
               <Card.Title>{personaje.name}</Card.Title>
               <Card.Text></Card.Text>
 
-              <Link to={`/learnmore/people/${index+1}`}>
-              <button className="btn btn-primary">Learn More</button>
+              <Link to={`/learnmore/people/${index + 1}`}>
+                <button className="btn btn-primary">Learn More</button>
               </Link>
 
-              <Button onClick={() => handleFavoriteClick(personaje.name)}>
+              <Button
+                onClick={() => handleFavoriteClick(personaje.name)}
+                className="mx-2"
+              >
                 {isFavorite(personaje.name) ? "♥" : "♡"}
               </Button>
             </Card.Body>

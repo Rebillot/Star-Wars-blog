@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.accordion-button {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.accordion-button:hover .image {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.button-text {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 50%;
+  max-width: 100%;
+}
+
+.image-content {
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+}
+
+.accordion-button {
+  position: relative;
+}
+
+.accordion-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #2fb6d8;
+  transition: width 0.4s ease;
+  z-index: -1;
+}
+
+.accordion-button:hover::before {
+  width: 100%;
+}
+
+
+.button-text{
+  color: yellow;
 }
