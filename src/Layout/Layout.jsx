@@ -17,7 +17,7 @@ function Layout() {
         <BrowserRouter>
             <NavBar/>
                 <Routes>
-                    <Route path="/" element={<MainDropDown/>} /> 
+                    <Route path="/home" element={<MainDropDown/>} /> 
                     <Route path="/Characters" element={<Characters/>} />
                     <Route path="/planets" element={<Planets/>} />
                     <Route path="/Vehicles" element={<Vehicles/>} />

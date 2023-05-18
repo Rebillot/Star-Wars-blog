@@ -34,7 +34,7 @@ function Vehicles() {
             <Card.Body>
                 <Card.Title>{vehicles.name}</Card.Title>
                 <Card.Text></Card.Text>
-                <Button variant="primary" href={`/learnmore/vehicles/${vehicles.name}`}>
+                <Button variant="primary" href={`/learnmore/vehicles/${vehicles.uid}`}>
                 Learn More
                 </Button>
                 <Button onClick={() => handleFavoriteClick(vehicles.name)}>

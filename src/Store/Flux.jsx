@@ -37,15 +37,6 @@ const getGlobalData = ({ getStore, getActions, setStore }) => {
         console.error(error);
       }
     },
-    // fetchFilms: async () => {
-    //   try {
-    //     const response = await fetch("https://swapi.tech/api/films?page=1&limit=10");
-    //     const data = await response.json();
-    //     setStore({ films: data.results });
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // },
     addToFavorites: (item) => {
       const updatedFavorites = [...getStore().favoritos, item];
       setStore({ favoritos: updatedFavorites });

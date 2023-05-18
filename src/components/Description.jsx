@@ -4,30 +4,37 @@ import { useContext, useState, useEffect } from "react";
 import { Context } from "../Store/AppContext";
 
 function LearnMore() {
-  const {actions} = useContext(Context);
+  const { actions } = useContext(Context);
   const [detalle, setDetalle] = useState({});
   const pathname = window.location.pathname;
   const pathNameDividido = pathname.split("/");
 
   useEffect(() => {
-  actions.fetchDetalles(pathNameDividido[pathNameDividido.length - 2], pathNameDividido[pathNameDividido.length - 1])
-  .then( result =>{setDetalle(result)})
-  },[]);
+    actions
+      .fetchDetalles(
+        pathNameDividido[pathNameDividido.length - 2],
+        pathNameDividido[pathNameDividido.length - 1]
+      )
+      .then((result) => {
+        setDetalle(result);
+      });
+  }, [pathname]);
 
-  // const info = detalle.result.properties
+  const info = detalle.result?.properties;
 
+  if (!info) {
+    return null;
+  }
 
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
-        <Card.Title>{detalle.result.properties.name}</Card.Title>
-        {/* <Card.Text>Birth Year: {info.birth_year}</Card.Text>
-        <Card.Text>Eye Color: {info.eye_color}</Card.Text>
-        <Card.Text>Gender: {info.gender}</Card.Text>
-        <Card.Text>Height: {info.height}</Card.Text>
-        <Card.Text>Skin Color: {info.skin_color}</Card.Text> */}
-        <Button variant="primary" onClick={()=> console.log(detalle,"real detalleeee")}>Home</Button>
+        <Card.Title>{info.name}</Card.Title>
+        <Card.Text></Card.Text>
+        <Button variant="primary" href="/home">
+          Home
+        </Button>
       </Card.Body>
     </Card>
   );
